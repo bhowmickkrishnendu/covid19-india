@@ -30,4 +30,6 @@ Requests
 
 > pip install requests
 
-Screenshot:
+***Screenshot:***
+
+![enter image description here](https://i.ibb.co/BzFRfhP/Capture.jpg)
