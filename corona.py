@@ -107,11 +107,11 @@ class Window(QMainWindow):
         for row in all_rows:
             stat = extract_contents(row.find_all('td'))
             if stat:
-                if len(stat) == 5:
+                if len(stat) == 6:
                     # last row
                     stat = ['', *stat]
                     self.stats.append(stat)
-                elif len(stat) == 6:
+                elif len(stat) == 7:
                     self.stats.append(stat)
 
         self.stats[-1][1] = "Total Cases"
@@ -155,7 +155,7 @@ class Window(QMainWindow):
         self.label_total = QLabel("Total Cases ", self)
 
         # setting geometry
-        self.label_total.setGeometry(100, 300, 200, 40)
+        self.label_total.setGeometry(100, 270, 200, 40)
 
         # setting alignment to the text
         self.label_total.setAlignment(Qt.AlignCenter)
@@ -167,7 +167,7 @@ class Window(QMainWindow):
         self.label_reco = QLabel("Recovered Cases ", self)
 
         # setting geometry
-        self.label_reco.setGeometry(100, 350, 200, 40)
+        self.label_reco.setGeometry(100, 312, 200, 40)
 
         # setting alignment to the text
         self.label_reco.setAlignment(Qt.AlignCenter)
@@ -179,7 +179,7 @@ class Window(QMainWindow):
         self.label_death = QLabel("Total Deaths ", self)
 
         # setting geometry
-        self.label_death.setGeometry(100, 400, 200, 40)
+        self.label_death.setGeometry(100, 354, 200, 40)
 
         # setting alignment to the text
         self.label_death.setAlignment(Qt.AlignCenter)
@@ -187,9 +187,21 @@ class Window(QMainWindow):
         # adding border to the label
         self.label_death.setStyleSheet("border : 2px solid black;")
 
+        # creating label to show confirmed cases
+        self.label_confirmed = QLabel("Total Deaths ", self)
+
+        # setting geometry
+        self.label_confirmed.setGeometry(100, 395, 200, 40)
+
+        # setting alignment to the text
+        self.label_confirmed.setAlignment(Qt.AlignCenter)
+
+        # adding border to the label
+        self.label_confirmed.setStyleSheet("border : 2px solid black;")
+
         # Start button for about Me
         self.pushButton = QPushButton("About Me", self)
-        self.pushButton.move(150, 450)
+        self.pushButton.move(150, 470)
         self.pushButton.setToolTip("<h3>Click to know about Krishnendu Bhowmick</h3>")
         self.pushButton.clicked.connect(self.window2)  # <===
 
@@ -203,11 +215,13 @@ class Window(QMainWindow):
         total = self.stats[index][3]
         recovered = self.stats[index][4]
         deaths = self.stats[index][5]
+        confirmed = self.stats[index][6]
 
         # show data through labels
-        self.label_total.setText("Total Cases : " + total)
+        self.label_total.setText("Active Cases : " + total)
         self.label_reco.setText("Recovered Cases : " + recovered)
         self.label_death.setText("Total Deaths : " + deaths)
+        self.label_confirmed.setText("Total Confirmed : " + confirmed)
 
     # About Me box
     def window2(self):  # <===
