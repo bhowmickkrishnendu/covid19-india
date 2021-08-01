@@ -1,4 +1,4 @@
-# Covid19 (India) - State Wise Tracker
+# Covid19 (India) - State Wise Tracker (DEPRECATED)
 
 A desktop application for live Covid-19 tracking by using Python v3.8.
 
